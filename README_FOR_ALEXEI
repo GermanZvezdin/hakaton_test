@@ -1,0 +1,5 @@
+to creacte branch
+git branch <branch_name>
+
+to change branch
+git checkout <branch_name>
