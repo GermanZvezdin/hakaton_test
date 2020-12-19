@@ -18,15 +18,17 @@ body {
 .basic-slide {
   display: inline-block;
   width: 215px;
-  padding: 30px 0 10px 15px;
+  padding: 20px 0 10px 25px;
   font-family: "Open Sans", sans;
   font-weight: 400;
-  color: #377D6A;
+  color: black;
   background: #efefef;
   border: 0;
   border-radius: 3px;
   outline: 0;
-  text-indent: 70px;
+  text-indent: 10px;
+  font-size: 20px;
+  text-align: center;
   transition: all .3s ease-in-out;
 }
 .basic-slide::-webkit-input-placeholder {

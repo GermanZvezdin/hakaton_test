@@ -10,11 +10,13 @@ import dash_daq as daq
 import dash_table as dt
 import pandas as pd
 import dash_daq as daq
+import os 
 
 app = dash.Dash(__name__)
 
 df = pd.read_csv('/home/alex/Downloads/notifications.csv')
 print(df.columns)
+df = df.dropna()
 app.layout = html.Div(
     className="frame-84",
     children=[
@@ -30,7 +32,7 @@ app.layout = html.Div(
        						className="Input-1",
 		       				children=[
 		       					dcc.Input(className="basic-slide"),
-		       					html.Label("->")
+		       					html.Label("РЕГИОН")
 		       				]),
 		       				html.Div(className="params",
 		       					children=[
@@ -85,7 +87,7 @@ def update_are(bt1):
        						className="Input-1",
 		       				children=[
 		       					dcc.Input(className="basic-slide"),
-		       					html.Label("->")
+		       					html.Label("РЕГИОН")
 		       				]),
 		       				html.Div(className="params",
 		       					children=[
@@ -108,8 +110,25 @@ def update_are(bt1):
     				daq.BooleanSwitch(id="email",on=True,color="#1875f0", className="switch_param"),
     				html.Div("Телефон",className="frame-82 param montserrat-bold-gray-24px border-class-1"),
     				daq.BooleanSwitch(id="phone",on=True,color="#1875f0", className="switch_param"),
-    				html.Div(className="rectangle-115"),
-    				html.Div(className="rectangle-115-2")
+    				print(df['maxprice'].values),
+    				html.Div(className="rectangle-115", children=[
+				  			dcc.Graph(id='price', config={'displayModeBar': False},
+	                        figure={
+		                        'data': [{'y': df['maxprice'].values, 'type': 'bar', 'name': 'prices'}],
+		                        'layout': {
+		                            'title': 'Гистограмма изменения цен'
+                    			}})
+                    		]),
+    				html.Div(className="rectangle-115-2",
+    					children=[
+    					html.A(
+                            html.Img(
+                            	src='/home/alex/PyProjects/hakaton_test/app/assets/csv_logo.svg'
+                            ),
+                            href=os.path.join('assets', 'style', '.css'),
+                            download="style.css",
+                        ),
+    					])
 				])
 				
 	else:
@@ -117,7 +136,7 @@ def update_are(bt1):
         	children=[
         		html.Div(className="rectangle-120"),
         		html.H1("Здравствуйте!",className="zdravstvuite-11135 montserrat-bolditalic-bold-white-48px border-class-1"),
-        		html.Div("Мы привествуем Вас на нашем портале “Остлеживание государственных закупок”. Для начала работы  нажмитекнопку “Выберите регион”",className="my-privest-gion-11134 montserrat-bold-white-18px border-class-1"),
+        		html.Div("Мы привествуем Вас на нашем портале “Остлеживание государственных закупок”. Для начала работы  впишите регион",className="my-privest-gion-11134 montserrat-bold-white-18px border-class-1"),
         		html.Div(className="clip-programming"),
         		html.Div(className="rectangle-111"),
         		html.Div(className="rectangle-112"),
