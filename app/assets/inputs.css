@@ -1,60 +1,3 @@
-html, body, .grid-container { height: 100%; margin: 0; }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.1fr 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0px 0px;
-}
-
-.Text1 { 
-  grid-area: 2 / 3 / 3 / 18;
- }
-
-.Image { 
-  grid-area: 8 / 2 / 19 / 19;
-  top: 10px;
- }
-
-.Zakupki { 
-  grid-area: 1 / 1 / 4 / 20;
-  background-color: var(--governor-bay);
-    height: 110px;
-    left: 0px;
-    position: absolute;
-    top: -2px;
-    width: 1920px;
- }
-
-.Menu-bar { 
-  grid-area: 4 / 2 / 7 / 19;
-  background-color: white;
-    height: 120px;
-    left: 0px;
-    position: absolute;
-    top: 108px;
-    width: 1920px;
-}
-
-.Input-1 { 
-  background-color: white;
-    height: 100px;
-    left: 200px;
-    position: absolute;
-    top: 20px;
-    width: 1920px;
-}
-
-.params { 
-  background-color: white;
-    height: 100px;
-    left: 400px;
-    position: absolute;
-    top: 20px;
-    width: 1000px;
-
- }
-
 :root {
   --fountain-blue: rgba(90, 186, 200, 1);
   --fountain-blue-2: rgba(90, 186, 200, 0.56);
@@ -99,7 +42,7 @@ body {
   padding: 21px 20px;
   text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
   background: black;
-  background-color: var(--governor-bay);
+  background-color: rgba(24, 117, 240, 1);
   transition: all .3s ease-in-out;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;

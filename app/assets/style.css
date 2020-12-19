@@ -170,14 +170,27 @@
 .frame-84 .rectangle-121 {
   background-color: transparent;
   border-radius: 1px;
-  height: 400px;
-  left: 149px;
+  height: 600px;
+  left: 130px;
   position: absolute;
-  top: 322px;
+  top: 250px;
   width: 800px;
   margin: auto;
   color:black;
 }
+
+.frame-84 .rectangle-122 {
+  background-color: transparent;
+  border-radius: 1px;
+  height: 180px;
+  left: 130px;
+  position: absolute;
+  top: 870px;
+  width: 800px;
+  margin: auto;
+  color:black;
+}
+
 
 .frame-84 .track-2 {
   background-color: transparent;
@@ -215,6 +228,13 @@
   color: white;
   font-family: "Montserrat-Bold", Helvetica, Arial, serif;
   font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+.montserrat-bold-white-48px {
+  color: white;
+  font-family: "Montserrat-Bold", Helvetica, Arial, serif;
+  font-size: 48px;
   font-style: normal;
   font-weight: 700;
 }
