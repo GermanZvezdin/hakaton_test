@@ -1,0 +1,204 @@
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.1fr 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+}
+
+.Text1 { 
+  grid-area: 2 / 3 / 3 / 18;
+ }
+
+.Image { 
+  grid-area: 8 / 2 / 19 / 19;
+  top: 10px;
+ }
+
+.Zakupki { 
+  grid-area: 1 / 1 / 4 / 20;
+  background-color: var(--governor-bay);
+    height: 110px;
+    left: 0px;
+    position: absolute;
+    top: -2px;
+    width: 1920px;
+ }
+
+.Menu-bar { 
+  grid-area: 4 / 2 / 7 / 19;
+  background-color: white;
+    height: 120px;
+    left: 0px;
+    position: absolute;
+    top: 108px;
+    width: 1920px;
+}
+
+.Input-1 { 
+  background-color: white;
+    height: 100px;
+    left: 200px;
+    position: absolute;
+    top: 20px;
+    width: 1920px;
+}
+
+.params { 
+  background-color: white;
+    height: 100px;
+    left: 400px;
+    position: absolute;
+    top: 20px;
+    width: 1000px;
+
+ }
+
+:root {
+  --fountain-blue: rgba(90, 186, 200, 1);
+  --fountain-blue-2: rgba(90, 186, 200, 0.56);
+  --governor-bay: rgba(43, 61, 168, 1);
+  --manatee: rgba(143, 146, 155, 1);
+  --whisper: rgba(245, 246, 250, 1);
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  color: #fff;
+  background: #efefef;
+  font-size: 30;
+}
+
+.basic-slide {
+  display: inline-block;
+  width: 215px;
+  padding: 30px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 70px;
+  transition: all .3s ease-in-out;
+}
+.basic-slide::-webkit-input-placeholder {
+  color: #efefef;
+  text-indent: 0;
+  font-weight: 300;
+}
+.basic-slide + label {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 21px 20px;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+  background: black;
+  background-color: var(--governor-bay);
+  transition: all .3s ease-in-out;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.basic-slide:focus,
+.basic-slide:active {
+  color: rgba(43, 61, 168, 1);;
+  text-indent: 0;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.basic-slide:focus::-webkit-input-placeholder,
+.basic-slide:active::-webkit-input-placeholder {
+  color: #aaa;
+  text-indent: 70px;
+}
+.basic-slide:focus + label,
+.basic-slide:active + label {
+  transform: translateX(-100%);
+}
+
+:root {
+  --fountain-blue: rgba(90, 186, 200, 1);
+  --fountain-blue-2: rgba(90, 186, 200, 0.56);
+  --governor-bay: rgba(43, 61, 168, 1);
+  --manatee: rgba(143, 146, 155, 1);
+  --whisper: rgba(245, 246, 250, 1);
+}
+a {
+  text-decoration: none;
+  display: contents;
+}
+
+:root {
+  --border-size: 0.125rem;
+  --duration: 250ms;
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --font-family: monospace;
+  --color-primary: white;
+  --color-text: black;
+  --color-secondary: rgba(24, 117, 240, 1);
+  --color-tertiary: dodgerblue;
+  --shadow: rgba(0, 0, 0, 0);
+  --space: 1rem;
+}
+
+.multi-button {
+  grid-area: 5 / 9 / 6 / 18;
+  display: flex;
+  width: 100%;
+  box-shadow: var(--shadow) 4px 4px;
+}
+
+.multi-button button {
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  padding:
+    calc(var(--space) / 1.125)
+    var(--space)
+    var(--space);
+  border: var(--border-size) solid black;
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  font-size: 1.5rem;
+  font-family: var(--font-family);
+  text-transform: lowercase;
+  text-shadow: var(--shadow) 2px 2px;
+  transition: flex-grow var(--duration) var(--ease);
+}
+
+.multi-button button + button {
+  border-left: var(--border-size) solid black;
+  margin-left: calc(var(--border-size) * -1);
+}
+
+.multi-button button:hover,
+.multi-button button:focus {
+  flex-grow: 2;
+  color: white;
+  outline: none;
+  text-shadow: none;
+  background-color: var(--color-secondary);
+}
+
+.multi-button button:focus {
+  outline: var(--border-size) dashed var(--color-primary);
+  outline-offset: calc(var(--border-size) * -3);
+}
+
+.multi-button:hover button:focus:not(:hover) {
+  flex-grow: 1;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  outline-color: var(--color-secondary);
+}
+
+.multi-button button:active {
+  transform: translateY(var(--border-size));
+}
