@@ -1,0 +1,154 @@
+* {
+  overflow-x: hidden;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.frame-80 {
+  background-color: var(--whisper);
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  width: 1370px;
+}
+.frame-80 .ellipse-87 {
+  background-color: transparent;
+  height: 11px;
+  left: 530px;
+  position: absolute;
+  top: 176px;
+  width: 11px;
+}
+.frame-80 .group-1 {
+  background-color: transparent;
+  height: 38px;
+  left: 675px;
+  position: absolute;
+  top: 137px;
+  width: 38px;
+}
+.frame-80 .group-137 {
+  background-color: transparent;
+  height: 161px;
+  left: 99px;
+  pointer-events: auto;
+  position: absolute;
+  top: 89px;
+  transition: all 0.2s ease;
+  width: 332px;
+}
+.frame-80 .group-137:hover {
+  transform: scale(1.1);
+}
+.frame-80 .otslezhiva-akupok-416 {
+  background-color: transparent;
+  height: auto;
+  left: 149px;
+  letter-spacing: 0px;
+  line-height: 29.2px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 861px;
+}
+.frame-80 .pobeditel-443 {
+  background-color: transparent;
+  height: auto;
+  left: 516px;
+  letter-spacing: 0px;
+  line-height: 17px;
+  position: absolute;
+  text-align: left;
+  top: 145px;
+  white-space: nowrap;
+  width: auto;
+}
+.frame-80 .rank-1 {
+  background-color: transparent;
+  height: 38px;
+  left: 463px;
+  position: absolute;
+  top: 134px;
+  width: 38px;
+}
+.frame-80 .rectangle-101 {
+  background-color: var(--governor-bay);
+  height: 110px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+.frame-80 .rectangle-103 {
+  background-color: var(--fountain-blue);
+  height: 110px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 110px;
+}
+.frame-80 .rectangle-104 {
+  background-color: white;
+  height: 100px;
+  left: 0px;
+  position: absolute;
+  top: 110px;
+  width: 1370px;
+}
+.frame-80 .track-1 {
+  background-color: transparent;
+  height: 81px;
+  left: 15px;
+  position: absolute;
+  top: 14px;
+  width: 81px;
+}
+.frame-80 .uchastnik-444 {
+  background-color: transparent;
+  height: auto;
+  left: 728px;
+  letter-spacing: 0px;
+  line-height: 17px;
+  position: absolute;
+  text-align: left;
+  top: 145px;
+  white-space: nowrap;
+  width: auto;
+}
+.montserrat-bold-blue-14px {
+  color: var(--blue);
+  font-family: "Montserrat-Bold", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+}
+.montserrat-bold-white-24px {
+  color: white;
+  font-family: "Montserrat-Bold", Helvetica, Arial, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+.montserrat-medium-manatee-14px {
+  color: var(--manatee);
+  font-family: "Montserrat-Medium", Helvetica, Arial, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+:root {
+  --blue: rgba(24, 117, 240, 1);
+  --fountain-blue: rgba(90, 186, 200, 1);
+  --governor-bay: rgba(43, 61, 168, 1);
+  --manatee: rgba(143, 146, 155, 1);
+  --whisper: rgba(245, 246, 250, 1);
+}
+.rectangle-101 {
+  background-color: var(--governor-bay);
+  flex-shrink: 0;
+  height: 110px;
+  width: 1920px;
+}
+:root {
+  --governor-bay: rgba(43, 61, 168, 1);
+}
