@@ -16,8 +16,8 @@ from df_func import *
 
 app = dash.Dash(__name__)
 
-df = pd.read_csv('/home/alex/Downloads/notifications.csv')
-#df_customer = pd.read_csv("data/customer.csv")
+df = pd.read_csv('./data/notifications.csv')
+customers_frame = "./data/customers_frame.txt"
 print(df.columns)
 df = df.dropna()
 
@@ -138,7 +138,7 @@ def update_are(bt1, bt2):
     					children=[
     					html.A(
                             html.Img(
-                            	src=dectode_svg("/home/alex/PyProjects/hakaton_test/app/assets/csv_logo.svg"),
+                            	src=dectode_svg("./assets/csv_logo.svg"),
                             	style={'height':"80px", "text-align": "center", "width": "auto", "left":"1000px", "top":"30px", "position": "absolute"}
                             ),
                             href=os.path.join('data', 'notifications.csv'),
