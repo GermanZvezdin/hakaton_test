@@ -17,6 +17,7 @@ from df_func import *
 app = dash.Dash(__name__)
 
 df = pd.read_csv('./data/notifications.csv')
+df_cust = pd.read_csv('./data/customer_inn0102003836.csv')
 customers_frame = "./data/customers_frame.txt"
 print(df.columns)
 df = df.dropna()
@@ -127,13 +128,18 @@ def update_are(bt1, bt2):
     				html.Div(id='bs4'),
     				print(df['maxprice'].values),
     				html.Div(className="rectangle-115", children=[
-				  			dcc.Graph(id='price', config={'displayModeBar': False},
-	                        figure={
-		                        'data': [{'y': df['maxprice'].values, 'type': 'bar', 'name': 'prices'}],
-		                        'layout': {
-		                            'title': 'Гистограмма изменения цен'
-                    			}})
-                    		]),
+    						dt.DataTable(
+			                id="table-line",
+			                columns=[{"name": i, "id": i} for i in df.columns],
+			                data=df.to_dict("records"),
+			                style_header={
+			                    "textDecoration": "underline",
+			                    "textDecorationStyle": "dotted",
+			                    "color":"black"},
+			                row_deletable=True,
+			                style_table={"overflowY": "scroll", 'width': 1100, 'height': 1000,"left":"10px","color":"black"},
+                			fixed_rows={"headers": True, "data": 0})
+    					]),		
     				html.Div(className="rectangle-115-2",
     					children=[
     					html.A(
@@ -191,13 +197,15 @@ def update_are(bt1, bt2):
     				html.Div(className="rectangle-115", children=[
     						dt.DataTable(
 			                id="table-line",
-			                columns=[{"name": i, "id": i} for i in df.columns],
-			                data=df.to_dict("records"),
+			                columns=[{"name": i, "id": i} for i in df_cust.columns],
+			                data=df_cust.to_dict("records"),
 			                style_header={
 			                    "textDecoration": "underline",
 			                    "textDecorationStyle": "dotted",
 			                    "color":"black"},
-			                row_deletable=True)
+			                row_deletable=True,
+			                style_table={"overflowY": "scroll", 'width': 1100, 'height': 1000,"left":"10px","color":"black"},
+                			fixed_rows={"headers": True, "data": 0})
     					])
     			])			
 	else:
