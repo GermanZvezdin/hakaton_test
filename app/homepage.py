@@ -12,12 +12,10 @@ import pandas as pd
 import dash_daq as daq
 import os 
 import base64
-from df_func import *
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__,suppress_callback_exceptions=True)
 
 df = pd.read_csv('/home/alex/Downloads/notifications.csv')
-#df_customer = pd.read_csv("data/customer.csv")
 print(df.columns)
 df = df.dropna()
 
@@ -78,9 +76,8 @@ dt.DataTable(
     #return 'The switch is {}.'.format(on)
 
 @app.callback(Output('Image_area', 'children'),
-	[Input('Participant', 'n_clicks'),
-	 Input('hist', 'n_clicks')])
-def update_are(bt1, bt2):
+  [Input('Participant', 'n_clicks')])
+def update_are(bt1):
 	changed_id = [p['prop_id'] for p in dash.callback_context.triggered][0]
 	if 'Participant' in changed_id:
 		ret = html.Div(
@@ -114,16 +111,16 @@ def update_are(bt1, bt2):
     				html.Div("Выберите интерисующие параметры",className="pobeditel-10247 montserrat-bold-gray-24px border-class-1"),
     				html.Div(className="rectangle-113-C61RwL"),
     				html.Div("ИНН",className="frame-82 param montserrat-bold-gray-24px border-class-1"),
-    				daq.BooleanSwitch(id="inn",on=False,color="#1875f0", className="frame-82 switch_param"),
+    				daq.BooleanSwitch(id="inn",on=True,color="#1875f0", className="frame-82 switch_param"),
     				html.Div(id='bs1'),
     				html.Div("ФЗ",className="frame-82 param montserrat-bold-gray-24px border-class-1"),
-    				daq.BooleanSwitch(id="fz",on=False,color="#1875f0", className="switch_param"),
+    				daq.BooleanSwitch(id="fz",on=True,color="#1875f0", className="switch_param"),
     				html.Div(id='bs2'),
     				html.Div("EMAIL",className="frame-82 param montserrat-bold-gray-24px border-class-1"),
-    				daq.BooleanSwitch(id="email",on=False,color="#1875f0", className="switch_param"),
+    				daq.BooleanSwitch(id="email",on=True,color="#1875f0", className="switch_param"),
     				html.Div(id='bs3'),
     				html.Div("Телефон",className="frame-82 param montserrat-bold-gray-24px border-class-1"),
-    				daq.BooleanSwitch(id="phone",on=False,color="#1875f0", className="switch_param"),
+    				daq.BooleanSwitch(id="phone",on=True,color="#1875f0", className="switch_param"),
     				html.Div(id='bs4'),
     				print(df['maxprice'].values),
     				html.Div(className="rectangle-115", children=[
@@ -141,65 +138,11 @@ def update_are(bt1, bt2):
                             	src=dectode_svg("/home/alex/PyProjects/hakaton_test/app/assets/csv_logo.svg"),
                             	style={'height':"80px", "text-align": "center", "width": "auto", "left":"1000px", "top":"30px", "position": "absolute"}
                             ),
-                            href=os.path.join('data', 'notifications.csv'),
-                            download="notifications.csv ",
+                            href=os.path.join('assets', 'style', '.css'),
+                            download="style.css",
                         ),
     					])
-				])
-
-	elif 'hist' in changed_id:
-		ret = html.Div(
-    			className="frame-82",
-    			children=[
-    				html.Div(className="rectangle-108"),
-        			html.Div(className="rectangle-109"),
-    				html.H1("Отслеживание государственных закупок",className="otslezhiva-akupok-721 montserrat-bold-white-48px border-class-1"),
-    				html.Div(className="frame-110",
-       				children=[
-       				html.Div(
-       					className="Menu-bar",
-       					children=[
-       						html.Span(
-       						className="Input-1",
-		       				children=[
-		       					dcc.Input(className="basic-slide"),
-		       					html.Label("РЕГИОН")
-		       				]),
-		       				html.Div(className="params",
-		       					children=[
-		       						html.Div(className="multi-button",
-		       							children=[
-		       								html.Button("участник",id='Participant',className="button", n_clicks=0),
-		       								html.Button("победитель",id='win',className="button",n_clicks=0),
-		       								html.Button("история",id='hist',className="button",n_clicks=0)
-		       							]),
-		       					])
-       						])
-       					]),
-    				html.Div("Выберите категорию",className="pobeditel-10247 montserrat-bold-gray-24px border-class-1"),
-    				#html.Div(className="rectangle-inn"),
-    				html.Div(className='rectangle-inn',
-			          children=[
-			          		dcc.Dropdown(
-								    options=[
-								        {'label': 'ИНН покупателя', 'value': 'inn_cust'},
-								        {'label': 'ИНН продавца', 'value': 'inn_sel'},
-								    	],
-								    searchable=False)  
-			                    ],
-			          		style={'color': '#1E3E1E', 'backgroundColor': 'transparent'}),
-    				html.Div(className="rectangle-115", children=[
-    						dt.DataTable(
-			                id="table-line",
-			                columns=[{"name": i, "id": i} for i in df.columns],
-			                data=df.to_dict("records"),
-			                style_header={
-			                    "textDecoration": "underline",
-			                    "textDecorationStyle": "dotted",
-			                    "color":"black"},
-			                row_deletable=True)
-    					])
-    			])			
+				])			
 	else:
 		ret = html.Div(
         	children=[
@@ -213,10 +156,12 @@ def update_are(bt1, bt2):
         	])
 	return ret
 
-@app.callback(Output('frame-82', 'children'),
-	[Input('selector', 'value')])
-def update_timeseries(selected_dropdown_value):
-	print(selected_dropdown_value)
+@app.callback(
+    dash.dependencies.Output('bs1', 'children'),
+    [dash.dependencies.Input('inn', 'on')])
+def update_output(on):
+  print(on)
+  return 'The switch is {}.'.format(on)
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
